@@ -10,21 +10,21 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class TestRunner {
 	
 	public static void main(String[] args) {
-		File file = new File(System.getProperty("user.dir"));
-		System.out.println(file);
 		
-//		System.setProperty("webdriver.gecko.driver",file+"//driver//geckodriver");
+//		System.setProperty("webdriver.gecko.driver",System.getProperty("user.dir")+"//driver//geckodriver");
 //		WebDriver driver = new FirefoxDriver();
 		
-		System.setProperty("webdriver.chrome.driver",file+"//driver//chromedriver");
+		System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"//driver//chromedriver");
 		WebDriver driver = new ChromeDriver();
 		
 		driver.get("http://google.com");
+		
 		String actualTitle = driver.getTitle();
 		System.out.println("actualTitle : " + actualTitle);
 		
 		driver.findElement(By.xpath("//input[@value='Google Search']"));
-		 driver.close();
+		
+		driver.close();
 	}
 
 }
